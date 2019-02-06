@@ -6,7 +6,9 @@ classificador = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 
 imagemCinza = cv2.cvtColor(imagem, cv2.COLOR_BGR2GRAY)
 
-deteccoes = classificador.detectMultiScale(imagemCinza)
+deteccoes = classificador.detectMultiScale(imagemCinza, scaleFactor=1.09, 
+                                                    minNeighbors = 5,
+                                                    minSize=(30,30))
 
 print(deteccoes)
 print(len(deteccoes))
